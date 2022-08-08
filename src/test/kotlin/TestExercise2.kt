@@ -10,14 +10,14 @@ class TestExercise2 {
 
     private var lines: List<List<String>>? = null
     private var correctResult: Map<Int, List<String>>? = null
-    private val regex: String = ","
+    private val sep: String = ","
     private val test: String = "1"
 
     @BeforeEach
     fun setup() {
         val file: File = File("src/test/resources/PI1E2_DatosEntrada$test.txt")
         try {
-            lines = Files.readLines(file, StandardCharsets.UTF_8).map { it.split(regex) }
+            lines = Files.readLines(file, StandardCharsets.UTF_8).map { it.split(sep) }
             correctResult = Exercise2.functional(lines!!)
         } catch (e: IOException) {
             e.printStackTrace()

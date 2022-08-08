@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets
 class TestExercise3 {
     private var lines: List<Pair<Int, Int>>? = null
     private var correctResult: List<List<Pair<Int, Int>>>? = null
-    private val regex: String = ","
+    private val sep: String = ","
 
     @BeforeEach
     fun setup() {
@@ -16,7 +16,7 @@ class TestExercise3 {
         try {
             lines = Files.readLines(file, StandardCharsets.UTF_8)
                 .map { line: String ->
-                    val aux: List<String> = line.split(regex)
+                    val aux: List<String> = line.split(sep)
                     Pair(aux[0].toInt(), aux[1].toInt())
                 }
             correctResult = lines!!.map { Exercise3.functional(it.first, it.second) }

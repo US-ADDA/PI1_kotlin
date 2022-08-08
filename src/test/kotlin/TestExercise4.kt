@@ -9,7 +9,7 @@ import kotlin.math.absoluteValue
 class TestExercise4 {
 
     private var lines: List<Pair<Double, Double>>? = null
-    private val regex: String = ","
+    private val sep: String = ","
 
     @BeforeEach
     fun setup() {
@@ -17,7 +17,7 @@ class TestExercise4 {
         try {
             lines = Files.readLines(file, StandardCharsets.UTF_8)
                 .map { line: String ->
-                    val aux: List<String> = line.split(regex)
+                    val aux: List<String> = line.split(sep)
                     Pair(aux[0].toDouble(), aux[1].toDouble())
                 }
         } catch (e: Exception) {
